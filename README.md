@@ -26,7 +26,7 @@ cp .env.example .env.local     # BACKEND_URL=http://localhost:8000, plus SMTP_* 
 npm run dev                    # http://localhost:3001
 ```
 
-Sign in with the backend's `ADMIN_EMAIL` / `ADMIN_PASSWORD`. The first sign-in creates that admin; add everyone else under **Settings → Team**.
+Sign in with the superuser you created with the backend's `manage.py createsuperuser`; add everyone else under **Settings → Team**.
 
 ## Deploying (Vercel)
 
