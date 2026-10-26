@@ -1,8 +1,8 @@
 'use client';
 
 import { useActionState, useEffect, useRef, useState } from 'react';
-import { BTN_PRIMARY, BTN_SECONDARY, FIELD, LABEL } from './ui/styles';
-import { addUser, changePassword } from '@/app/(dash)/settings/actions';
+import { BTN_GHOST, BTN_PRIMARY, BTN_SECONDARY, FIELD, LABEL } from './ui/styles';
+import { addUser, changePassword, updateUser } from '@/app/(dash)/settings/actions';
 
 function Result({ state, ok = 'Saved' }) {
   if (state?.error) return <span role="alert" className="text-[12.5px] text-bad">{state.error}</span>;
@@ -29,6 +29,20 @@ export function AddUserForm() {
         <button type="submit" disabled={pending} className={BTN_PRIMARY}>{pending ? 'Adding…' : 'Add member'}</button>
       </div>
       <div className="col-span-full -mt-[2px] min-h-[18px]"><Result state={state} ok="Member added. Share the temporary password with them directly." /></div>
+    </form>
+  );
+}
+
+export function RemoveMember({ id, name }) {
+  return (
+    <form
+      action={updateUser.bind(null, id)}
+      onSubmit={(e) => {
+        if (!confirm(`Remove ${name} from the team? Their leads become unassigned. This cannot be undone.`)) e.preventDefault();
+      }}
+    >
+      <input type="hidden" name="op" value="remove" />
+      <button type="submit" className={`${BTN_GHOST} h-[30px] px-[10px] text-[12px] text-bad`}>Remove</button>
     </form>
   );
 }

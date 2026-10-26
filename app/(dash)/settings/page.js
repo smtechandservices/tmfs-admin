@@ -1,7 +1,7 @@
 import Card from '@/components/ui/Card';
 import Icon from '@/components/ui/Icon';
 import PageHeader from '@/components/ui/PageHeader';
-import { AddUserForm, CopyField, PasswordForm } from '@/components/SettingsForms';
+import { AddUserForm, CopyField, PasswordForm, RemoveMember } from '@/components/SettingsForms';
 import { BTN_GHOST, FIELD } from '@/components/ui/styles';
 import { api } from '@/lib/api';
 import { requireUser } from '@/lib/auth';
@@ -131,6 +131,7 @@ export default async function SettingsPage() {
                             <input type="hidden" name="op" value={u.active ? 'deactivate' : 'activate'} />
                             <button type="submit" className={`${BTN_GHOST} h-[30px] px-[10px] text-[12px] ${u.active ? 'text-bad' : ''}`}>{u.active ? 'Deactivate' : 'Reactivate'}</button>
                           </form>
+                          {u.role === 'agent' && <RemoveMember id={u.id} name={u.name} />}
                         </div>
                       )}
                     </td>
