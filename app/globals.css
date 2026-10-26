@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* Colour roles. Light only, like the website, whatever the OS setting.
+   Chart series/status steps come from the validated data-viz palette (see
+   components/charts). */
+:root {
+  color-scheme: light;
+  /* Neutrals and brand roles follow the tmfs website (cream, warm lines,
+     Royal Blue headings, Signal Red accents). */
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface-2: #f4f1eb;
+  --surface-3: #edeae4;
+  --line: #e5e0d8;
+  --line-strong: #d6d0c7;
+  --ink: #14121a;
+  --ink-2: #5a5563;
+  --ink-muted: #75707e;
+  --brand: #1800ad;
+  --brand-hover: #2c20cf;
+  --brand-soft: #eeedfb;
+  --brand-ink: #1800ad;
+  --accent: #db141c;
+  --accent-soft: #fbf1f0;
+  --focus: rgba(219, 20, 28, 0.12);
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-7: #6250d6;
+  --series-1-wash: rgba(42, 120, 214, 0.1);
+  --grid: #ece8e1;
+  --axis: #d6d0c7;
+
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --good-ink: #006300;
+  --bad-ink: #b42323;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-muted: var(--ink-muted);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-good: var(--good-ink);
+  --color-bad: var(--bad-ink);
+  /* Same stacks as the website: Mont (Montserrat) for headings, Helvetica Now
+     (Helvetica Neue / Inter) for body. */
+  --font-sans: "Helvetica Now Text", "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif;
+  --font-display: "Mont", "Montserrat", system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+/* In the base layer so a field's own focus ring (FIELD) can replace it. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--brand-ink);
+    outline-offset: 2px;
+  }
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
