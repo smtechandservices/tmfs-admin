@@ -3,7 +3,10 @@ import './globals.css';
 export const metadata = {
   title: { default: 'TMFS Admin', template: '%s · TMFS Admin' },
   description: 'Leads, website analytics and email for Time Machine Financial Services.',
-  icons: { icon: '/logo.png', apple: '/apple-icon.png' },
+  applicationName: 'TMFS Admin',
+  authors: [{ name: 'Time Machine Financial Services' }],
+  // Favicon and home-screen icon use the same badge as the public site.
+  icons: { icon: '/logo.png', apple: '/logo.png' },
   robots: { index: false, follow: false },
 };
 
