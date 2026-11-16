@@ -86,7 +86,7 @@ export default async function LeadPage({ params }) {
             lead={lead}
             user={user}
             emailReady={mailConfigured()}
-            signature={'Time Machine Financial Services\n+971 52 214 9086 · timemachine.ae'}
+            signature={'Time Machine Financial Services\n+971 58 142 7348 · timemachine.ae'}
           />
           <Card title="Activity" subtitle={`${timeline.length} ${timeline.length === 1 ? 'entry' : 'entries'}, newest first`}>
             <Timeline items={timeline} />
